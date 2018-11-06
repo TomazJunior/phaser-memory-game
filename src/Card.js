@@ -1,21 +1,42 @@
 
 export default class Card {
-  constructor(key, gameScene, x, y) {
+  constructor({key, gameScene, x, y, handler}) {
     this.key = key;
-    this.cover = gameScene.add.sprite(x, y, 'cover.png').setInteractive();
-    this.front = gameScene.add.sprite(x, y, key).setInteractive();
+    this.gameScene = gameScene;
+    this.handler = handler;
+    this.out = false;
+    this._draw(x, y);
+  }
+
+  _draw(x, y) {
+    this.cover = this.gameScene.add.sprite(x, y, 'cover.png').setInteractive();
+    this.front = this.gameScene.add.sprite(x, y, this.key).setInteractive();
 
     this.cover.on('pointerdown', this._onClickHandler.bind(this));
     this.front.on('pointerdown', this._onClickHandler.bind(this));
 
-    this.toggle();
+    this.close();
   }
 
-  toggle() {
-    this._onClickHandler();
+  readOnly () {
+    this.out = true;
   }
 
-  _onClickHandler() {
-    this.front.visible = !this.front.visible;
+  isVisible () {
+    return this.front.visible;
+  }
+
+  close() {
+    !this.out && 
+      (this.front.visible = false);
+  }
+
+  open() {
+    !this.out && 
+      (this.front.visible = true);
+  }
+
+  _onClickHandler() {  
+    this.handler(this);
   }
 }
