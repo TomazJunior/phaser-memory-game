@@ -9,15 +9,15 @@ export default class Game extends Phaser.Game {
       width: 800,
       height: 600,
       physics: {
-          default: 'arcade',
-          arcade: {
-              gravity: { y: 200 }
-          }
+        default: 'arcade',
+        arcade: {
+          gravity: { y: 200 }
+        }
       },
     };
-    super(config)
+    super(config);
     this.scene.add('Game', Board, true);
   }
 }
 
-window.game = new Game()
+window.game = new Game();

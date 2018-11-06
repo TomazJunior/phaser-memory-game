@@ -1,4 +1,3 @@
-import Phaser from 'phaser'
 import Card from './Card';
 import { images } from './imageUtils';
 import { getRandomInt } from './util';
@@ -20,10 +19,9 @@ export default class GameScene {
   }
   
   _loadCards () {
-    Object.keys(images)
-    .map((name) => {
+    Object.keys(images).map((name) => {
       this.load.image(name, images[name]);
-    })
+    });
   }
 
   _cardClickHandler (card) {
@@ -55,7 +53,7 @@ export default class GameScene {
   }
 
   _updateScore() {
-    var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+    var style = { font: 'bold 32px Arial', fill: '#fff', boundsAlignH: 'center', boundsAlignV: 'middle' };
 
     if (!this.score) {
       this.score = this.add.text(0, 400, '', style);
@@ -66,7 +64,7 @@ export default class GameScene {
       Attempts:${this.attempts}
       Matches: ${this._matchedCards()}
       Efficiency: ${efficiency}%
-    `
+    `;
   }
 
   _setAsReadOnly() {
@@ -98,8 +96,7 @@ export default class GameScene {
     const numberOfCards = PAIRS * 2;
     const positions = [];
     
-    const imageNames = Object.keys(images)
-    .filter((name) => {
+    const imageNames = Object.keys(images).filter((name) => {
       return name !== 'cover.png';
     }).slice(0, PAIRS);
 
@@ -110,7 +107,7 @@ export default class GameScene {
           positions.push({
             x: INITIAL_X + (H_OFFSET * pos),
             y: INITIAL_Y + (V_OFFSET * line)
-          })
+          });
         }
         total--;
       }
