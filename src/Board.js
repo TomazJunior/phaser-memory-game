@@ -97,7 +97,7 @@ export default class GameScene {
     const positions = [];
     
     const imageNames = Object.keys(images).filter((name) => {
-      return name !== 'cover.png';
+      return name.includes('card');
     }).slice(0, PAIRS);
 
     let total = numberOfCards;
