@@ -9,7 +9,8 @@ export default class Card {
   }
 
   _draw(x, y) {
-    this.cover = this.gameScene.add.sprite(x, y, 'cover.png').setInteractive();
+    this.frontbg = this.gameScene.add.sprite(x, y, 'front.png').setInteractive();
+    this.cover = this.gameScene.add.sprite(x, y, 'back.png').setInteractive();
     this.front = this.gameScene.add.sprite(x, y, this.key).setInteractive();
 
     this.cover.on('pointerdown', this._onClickHandler.bind(this));
@@ -27,16 +28,22 @@ export default class Card {
   }
 
   faceDown() {
-    !this.outOfTheGame && 
-      (this.front.visible = false);
+    if (!this.outOfTheGame) {
+      this.frontbg.visible = false;
+      this.front.visible = false;
+      this.cover.visible = true;
+    }
   }
 
   faceUp() {
-    !this.outOfTheGame && 
-      (this.front.visible = true);
+    if (!this.outOfTheGame) {
+      this.frontbg.visible = true;
+      this.front.visible = true;
+      this.cover.visible = false;
+    }
   }
 
-  _onClickHandler() {  
+  _onClickHandler() {
     this.handler(this);
   }
 }
