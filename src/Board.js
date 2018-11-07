@@ -41,10 +41,10 @@ export default class GameScene {
       } else {
         this._faceCardsDown();
       }
-      this.selectedCards.length = 0;
-      this.attempts++;
-      this.waitForNewRound = false;
       this._updateScore();
+      this.selectedCards.length = 0;
+      this.waitForNewRound = false;
+      this.attempts++;
     }, 1000);
   }
 
