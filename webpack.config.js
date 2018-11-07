@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
   },
@@ -15,7 +15,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         }
       },
       {
@@ -32,8 +32,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-        'CANVAS_RENDERER': JSON.stringify(true),
-        'WEBGL_RENDERER': JSON.stringify(true)
+      'CANVAS_RENDERER': JSON.stringify(true),
+      'WEBGL_RENDERER': JSON.stringify(true)
     })
   ]
 };

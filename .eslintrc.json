@@ -25,7 +25,9 @@
     },  
     "globals": {
         "phaser": true,
-        "require": true
+        "require": true,
+        "__dirname": true,
+        "module": true
     },
     "settings": {
         "import/core-modules": ["phaser", "pixi", "p2"]
