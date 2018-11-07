@@ -4,7 +4,7 @@ export default class Card {
     this.key = key;
     this.gameScene = gameScene;
     this.handler = handler;
-    this.out = false;
+    this.outOfTheGame = false;
     this._draw(x, y);
   }
 
@@ -15,24 +15,24 @@ export default class Card {
     this.cover.on('pointerdown', this._onClickHandler.bind(this));
     this.front.on('pointerdown', this._onClickHandler.bind(this));
 
-    this.close();
+    this.faceDown();
   }
 
   readOnly () {
-    this.out = true;
+    this.outOfTheGame = true;
   }
 
   isVisible () {
     return this.front.visible;
   }
 
-  close() {
-    !this.out && 
+  faceDown() {
+    !this.outOfTheGame && 
       (this.front.visible = false);
   }
 
-  open() {
-    !this.out && 
+  faceUp() {
+    !this.outOfTheGame && 
       (this.front.visible = true);
   }
 

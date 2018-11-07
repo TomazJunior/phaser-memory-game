@@ -26,7 +26,7 @@ export default class GameScene {
 
   _cardClickHandler (card) {
     if (this.waitForNewRound || card.out) { return; }
-    card.open();
+    card.faceUp();
     this.selectedCards.push(card);
     if (this.selectedCards.length === 2) {
       this._newRound();
@@ -39,7 +39,7 @@ export default class GameScene {
       if (this._matchCards()) {
         this._setAsReadOnly();
       } else {
-        this._closeCards();
+        this._faceCardsDown();
       }
       this.selectedCards.length = 0;
       this.attempts++;
@@ -49,7 +49,7 @@ export default class GameScene {
   }
 
   _matchedCards() {
-    return this.cards.filter((card) => card.out).length / 2;
+    return this.cards.filter((card) => card.outOfTheGame).length / 2;
   }
 
   _updateScore() {
@@ -71,8 +71,8 @@ export default class GameScene {
     this.selectedCards.forEach((card) => card.readOnly());
   }
 
-  _closeCards() {
-    this.selectedCards.forEach((card) => card.close());
+  _faceCardsDown() {
+    this.selectedCards.forEach((card) => card.faceDown());
   }
 
   _matchCards () {
