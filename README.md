@@ -2,6 +2,11 @@
 
 A match memory game using phaser 3, webpack and ES6.
 
+### Live Demo
+Hosted on the github pages
+
+<a href="http://TomazJunior.github.io/phaser-memory-game/" target="_blank">Live demo</a>
+
 ## Getting Started
 ```
 npm install

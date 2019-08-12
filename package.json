@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "http://TomazJunior.github.io/phaser-memory-game",
   "scripts": {
     "build": "webpack",
-    "start": "npm run build && webpack-dev-server --port=8000",
+    "start": "npm run build && webpack-dev-server --port=3100",
     "eslint": "eslint './src/**/*.js'",
-    "test": "npm run eslint"
+    "test": "npm run eslint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +26,7 @@
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.8.0",
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "preload-webpack-plugin": "^2.3.0",
     "raw-loader": "^0.5.1",
