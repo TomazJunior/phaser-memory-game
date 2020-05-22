@@ -14,7 +14,7 @@ npm start
 ```
 
 ## Screenshot
-![gameplay](https://github.com/TomazJunior/phaser-memory-game/blob/master/assets/screen-shots/memory-game-screen-shot.png?raw=true)
+![gameplay](https://github.com/TomazJunior/phaser-memory-game/blob/master/assets/screen-shots/memory-game-screen-shot2.PNG?raw=true)
 
 ## Author
 
